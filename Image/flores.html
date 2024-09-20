@@ -17,6 +17,7 @@
             position: relative;
         }
         .card {
+            padding: 80;
             width: 300px;
             height: 350px;
             background-color: white;
@@ -40,7 +41,8 @@
         .flowers {
             position: absolute;
             width: 90%;
-            height: 90%;
+            height: 100%;
+            bottom: 7%;
             right: 30px;
             left: 18px;
             background-image: url('ramo.png');
@@ -73,36 +75,57 @@
             opacity: 0;
         }
 
+        .flower-message {
+            position: absolute;
+            bottom: 4%;
+            left: 2%;
+            width: 100%;
+            font-size: 22px;
+            color: #000000;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
         .ari2 {
             width: 80px;
             height: 80px;
             background-image: url('ari2.png');
         }
-        .card{
+        .card {
             animation: fadeIn 1s ease-in-out;
         }
         .message h2, .message p {
-    animation: fadeIn 2.2s ease-in-out;
-}
-    @keyframes fadeIn {
-        0% { opacity: 0; transform: translateY(20px); }
-        100% { opacity: 1; transform: translateY(0); }
-    }
+            animation: fadeIn 2.2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
 
+<audio id="backgroundMusic" loop>
+    <source src="floricienta.mp3" type="audio/mpeg">
+    <source src="floricienta.ogg" type="audio/ogg">
+</audio>
+
 <div class="card" onclick="revealMessage()">
     <div class="flowers"></div>
     <div class="message" id="message">
-        <h2>¡ Flores Amarillas para ti !</h2>
+        <h2> ¡ Flores Amarillas para ti !</h2>
         <img src="ari2.jpg" style="width: 40%; border-radius: 10px;">
         <p>El 21 de septiembre es especial, porque como estas flores, tú iluminas mi vida... 🌻❤️</p>
+    </div>
+    <div class="flower-message" id="flowerMessage"> <p> TE QUIERO MUCHO 🧸❤️</p>
     </div>
 </div>
 
 <script>
     let messageRevealed = false;
+    const audio = document.getElementById('backgroundMusic');
+    const flowerMessage = document.getElementById('flowerMessage');
 
     function revealMessage() {
         const flowers = document.querySelector('.flowers');
@@ -111,9 +134,12 @@
         if (!messageRevealed) {
             flowers.style.opacity = '1';
             message.classList.add('hidden-message');
+            flowerMessage.style.opacity = '1';  // Mostrar el mensaje debajo del ramo
+            audio.play();  // Reproducir el audio al hacer clic
         } else {
             flowers.style.opacity = '0';
             message.classList.remove('hidden-message');
+            flowerMessage.style.opacity = '0';  // Ocultar el mensaje
         }
         messageRevealed = !messageRevealed;
     }
