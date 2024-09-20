@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas para ti</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffeb99;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .card {
+            width: 400px;
+            height: 500px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 2;
+            border-top: 13px solid #ffbd24;
+            border-bottom: 13px solid #ffbd24;
+            border-left: 13px solid #cfb694;
+            border-right: 13px solid #cfb694;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .flowers {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            right: 30px;
+            left: 30px;
+            background-image: url('ramo.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .message {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            color: #333;
+        }
+        .message h2 {
+            font-size: 25px;
+            color: #FFB300;
+        }
+        .message p {
+            font-size: 18px;
+            color: #333;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+        .hidden-message {
+            opacity: 0;
+        }
+
+        .heart, .sunflower, .rose {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .heart {
+            width: 40px;
+            height: 40px;
+            background-image: url('corazon.png');
+            filter: hue-rotate(180deg);
+        }
+
+        .sunflower {
+            width: 50px;
+            height: 50px;
+            background-image: url('girasol.png');
+        }
+
+        .rose {
+            width: 40px;
+            height: 40px;
+            background-image: url('estrella.png');
+        }
+        .ari2 {
+            width: 80px;
+            height: 80px;
+            background-image: url('ari2.png');
+        }
+        .card{
+            animation: fadeIn 1s ease-in-out;
+        }
+        .message h2, .message p {
+    animation: fadeIn 2.2s ease-in-out;
+}
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    
+
+        .heart1 { top: 20px; left: 10px; animation: float 3s infinite; }
+        .heart2 { top: 20px; left: 210px; animation: float 4s infinite; }
+        .heart3 { top: 590px; left: 110px; animation: float 5s infinite; }
+        .heart4 { top: 190px; left: 110px; animation: float 6s infinite; }
+        .heart5 { top: 820px; left: 210px; animation: float 2s infinite; }
+        .heart6 { top: 400px; left: 20px; animation: float 3s infinite; }
+        .heart7 { top: 400px; left: 210px; animation: float 4s infinite; }
+        .heart8 { top: 820px; left: 20px; animation: float 5s infinite; }
+        .heart9 { top: 190px; left: 320px; animation: float 5s infinite; }
+        .heart10 { top: 590px; left: 320px; animation: float 5s infinite; }
+        .heart11 { top: 20px; left: 440px; animation: float 5s infinite; }
+        .heart12 { top: 190px; left: 550px; animation: float 5s infinite; }
+        .heart13 { top: 400px; left: 440px; animation: float 5s infinite; }
+        .heart14 { top: 590px; left: 550px; animation: float 5s infinite; }
+        .heart15 { top: 820px; left: 440px; animation: float 5s infinite; }
+        .heart16 { top: 20px; left: 660px; animation: float 5s infinite; }
+        .heart17 { top: 190px; left: 770px; animation: float 5s infinite; }
+        .heart18 { top: 400px; left: 660px; animation: float 5s infinite; }
+        .heart19 { top: 20px; left: 880px; animation: float 5s infinite; }
+        .heart20 { top: 820px; left: 660px; animation: float 5s infinite; }
+        .heart21 { top: 820px; left: 880px; animation: float 5s infinite; }
+        .heart22 { top: 20px; left: 1090px; animation: float 5s infinite; }
+        .heart23 { top: 190px; left: 985px; animation: float 3s infinite; }
+        .heart24 { top: 820px; left: 1090px; animation: float 4s infinite; }
+        .heart25 { top: 190px; left: 1210px; animation: float 5s infinite; }
+        .heart26 { top: 590px; left: 1210px; animation: float 6s infinite; }
+        .heart27 { top: 20px; left: 1330px; animation: float 6s infinite; }
+        .heart28 { top: 190px; left: 1450px; animation: float 6s infinite; }
+        .heart29 { top: 400px; left: 1330px; animation: float 6s infinite; }
+        .heart30 { top: 820px; left: 1330px; animation: float 6s infinite; }
+        .heart31 { top: 590px; left: 1450px; animation: float 6s infinite; }
+        .heart32 { top: 20px; left: 1560px; animation: float 6s infinite; }
+        .heart33 { top: 400px; left: 1560px; animation: float 6s infinite; }
+        .heart34 { top: 820px; left: 1560px; animation: float 6s infinite; }
+        .heart35 { top: 190px; left: 1670px; animation: float 6s infinite; }
+        .heart36 { top: 590px; left: 1670px; animation: float 6s infinite; }
+        .heart37 { top: 20px; left: 1770px; animation: float 6s infinite; }
+        .heart38 { top: 190px; left: 1860px; animation: float 6s infinite; }
+        .heart39 { top: 400px; left: 1770px; animation: float 6s infinite; }
+        .heart40 { top: 820px; left: 1770px; animation: float 6s infinite; }
+        .heart41 { top: 590px; left: 1860px; animation: float 6s infinite; }
+        .heart42 { top: 400px; left: 1770px; animation: float 6s infinite; }
+
+        .sunflower1 { top: 60px; left: 100px; animation: float 3s infinite; }
+        .sunflower2 { top: 880px; left: 110px; animation: float 4s infinite; }
+        .sunflower3 { top: 460px; left: 110px; animation: float 5s infinite; }
+        .sunflower4 { top: 650px; left: 20px; animation: float 6s infinite; }
+        .sunflower5 { top: 650px; left: 210px; animation: float 2s infinite; }
+        .sunflower6 { top: 60px; left: 320px; animation: float 3s infinite; }
+        .sunflower7 { top: 250px; left: 20px; animation: float 4s infinite; }
+        .sunflower8 { top: 250px; left: 210px; animation: float 5s infinite; }
+        .sunflower9 { top: 460px; left: 320px; animation: float 5s infinite; }
+        .sunflower10 { top: 880px; left: 320px; animation: float 5s infinite; }
+        .sunflower11 { top: 60px; left: 550px; animation: float 5s infinite; }
+        .sunflower12 { top: 250px; left: 440px; animation: float 5s infinite; }
+        .sunflower13 { top: 460px; left: 550px; animation: float 5s infinite; }
+        .sunflower14 { top: 650px; left: 440px; animation: float 5s infinite; }
+        .sunflower15 { top: 880px; left: 550px; animation: float 5s infinite; }
+        .sunflower16 { top: 60px; left: 770px; animation: float 5s infinite; }
+        .sunflower17 { top: 250px; left: 660px; animation: float 5s infinite; }
+        .sunflower18 { top: 650px; left: 660px; animation: float 5s infinite; }
+        .sunflower19 { top: 880px; left: 770px; animation: float 5s infinite; }
+        .sunflower20 { top: 60px; left: 980px; animation: float 5s infinite; }
+        .sunflower21 { top: 880px; left: 980px; animation: float 5s infinite; }
+        .sunflower22 { top: 60px; left: 100px; animation: float 3s infinite; }
+        .sunflower23 { top: 60px; left: 1210px; animation: float 4s infinite; }
+        .sunflower24 { top: 460px; left: 1210px; animation: float 5s infinite; }
+        .sunflower25 { top: 880px; left: 1210px; animation: float 5s infinite; }
+        .sunflower26 { top: 250px; left: 1330px; animation: float 5s infinite; }
+        .sunflower27 { top: 650px; left: 1330px; animation: float 5s infinite; }
+        .sunflower28 { top: 60px; left: 1450px; animation: float 5s infinite; }
+        .sunflower29 { top: 460px; left: 1450px; animation: float 5s infinite; }
+        .sunflower30 { top: 880px; left: 1450px; animation: float 5s infinite; }
+        .sunflower31 { top: 250px; left: 1560px; animation: float 5s infinite; }
+        .sunflower32 { top: 650px; left: 1560px; animation: float 5s infinite; }
+        .sunflower33 { top: 60px; left: 1670px; animation: float 5s infinite; }
+        .sunflower34 { top: 460px; left: 1670px; animation: float 5s infinite; }
+        .sunflower35 { top: 880px; left: 1670px; animation: float 5s infinite; }
+        .sunflower36 { top: 250px; left: 1770px; animation: float 5s infinite; }
+        .sunflower37 { top: 650px; left: 1770px; animation: float 5s infinite; }
+        .sunflower38 { top: 60px; left: 1860px; animation: float 5s infinite; }
+        .sunflower39 { top: 460px; left: 1860px; animation: float 5s infinite; }
+        .sunflower40 { top: 880px; left: 1860px; animation: float 5s infinite; }
+
+        .rose1 { top: 740px; left: 110px; animation: float 3s infinite; }
+        .rose3 { top: 330px; left: 110px; animation: float 5s infinite; }
+        .rose4 { top: 330px; left: 320px; animation: float 6s infinite; }
+        .rose5 { top: 130px; left: 20px; animation: float 2s infinite; }
+        .rose6 { top: 130px; left: 210px; animation: float 3s infinite; }
+        .rose7 { top: 530px; left: 20px; animation: float 4s infinite; }
+        .rose8 { top: 530px; left: 210px; animation: float 5s infinite; }
+        .rose9 { top: 740px; left: 320px; animation: float 5s infinite; }
+        .rose10 { top: 130px; left: 440px; animation: float 5s infinite; }
+        .rose11{ top: 330px; left: 550px; animation: float 5s infinite; }
+        .rose12{ top: 530px; left: 440px; animation: float 5s infinite; }
+        .rose13{ top: 740px; left: 550px; animation: float 5s infinite; }
+        .rose14{ top: 740px; left: 320px; animation: float 5s infinite; }
+        .rose15{ top: 130px; left: 660px; animation: float 5s infinite; }
+        .rose16{ top: 530px; left: 660px; animation: float 5s infinite; }
+        .rose17{ top: 740px; left: 770px; animation: float 5s infinite; }
+        .rose18{ top: 130px; left: 880px; animation: float 5s infinite; }
+        .rose19{ top: 740px; left: 320px; animation: float 5s infinite; }
+        .rose20{ top: 740px; left: 320px; animation: float 5s infinite; }
+        .rose21 { top: 60px; left: 80px; animation: float 3s infinite; }
+        .rose22 { top: 740px; left: 990px; animation: float 5s infinite; }
+        .rose23 { top: 130px; left: 1090px; animation: float 5s infinite; }
+        .rose24 { top: 330px; left: 1210px; animation: float 5s infinite; }
+        .rose25 { top: 740px; left: 1210px; animation: float 5s infinite; }
+        .rose26 { top: 130px; left: 1330px; animation: float 5s infinite; }
+        .rose27 { top: 530px; left: 1330px; animation: float 5s infinite; }
+        .rose28 { top: 330px; left: 1450px; animation: float 5s infinite; }
+        .rose29 { top: 740px; left: 1450px; animation: float 5s infinite; }
+        .rose30 { top: 130px; left: 1560px; animation: float 5s infinite; }
+        .rose31 { top: 530px; left: 1560px; animation: float 5s infinite; }
+        .rose32 { top: 330px; left: 1670px; animation: float 5s infinite; }
+        .rose33 { top: 740px; left: 1670px; animation: float 5s infinite; }
+        .rose34 { top: 130px; left: 1770px; animation: float 5s infinite; }
+        .rose35 { top: 530px; left: 1770px; animation: float 5s infinite; }
+        .rose36 { top: 330px; left: 1860px; animation: float 5s infinite; }
+        .rose37 { top: 740px; left: 1860px; animation: float 5s infinite; }
+
+    </style>
+</head>
+<body>
+
+<div class="heart heart1"></div>
+<div class="heart heart2"></div>
+<div class="heart heart3"></div>
+<div class="heart heart4"></div>
+<div class="heart heart5"></div>
+<div class="heart heart6"></div>
+<div class="heart heart7"></div>
+<div class="heart heart8"></div>
+<div class="heart heart9"></div>
+<div class="heart heart10"></div>
+<div class="heart heart11"></div>
+<div class="heart heart12"></div>
+<div class="heart heart13"></div>
+<div class="heart heart14"></div>
+<div class="heart heart15"></div>
+<div class="heart heart16"></div>
+<div class="heart heart17"></div>
+<div class="heart heart18"></div>
+<div class="heart heart19"></div>
+<div class="heart heart20"></div>
+<div class="heart heart21"></div>
+<div class="heart heart22"></div>
+<div class="heart heart23"></div>
+<div class="heart heart24"></div>
+<div class="heart heart25"></div>
+<div class="heart heart26"></div>
+<div class="heart heart27"></div>
+<div class="heart heart28"></div>
+<div class="heart heart29"></div>
+<div class="heart heart30"></div>
+<div class="heart heart31"></div>
+<div class="heart heart32"></div>
+<div class="heart heart33"></div>
+<div class="heart heart34"></div>
+<div class="heart heart35"></div>
+<div class="heart heart36"></div>
+<div class="heart heart37"></div>
+<div class="heart heart38"></div>
+<div class="heart heart39"></div>
+<div class="heart heart40"></div>
+<div class="heart heart41"></div>
+<div class="heart heart42"></div>
+
+<div class="sunflower sunflower1"></div>
+<div class="sunflower sunflower2"></div>
+<div class="sunflower sunflower3"></div>
+<div class="sunflower sunflower4"></div>
+<div class="sunflower sunflower5"></div>
+<div class="sunflower sunflower6"></div>
+<div class="sunflower sunflower7"></div>
+<div class="sunflower sunflower8"></div>
+<div class="sunflower sunflower9"></div>
+<div class="sunflower sunflower10"></div>
+<div class="sunflower sunflower11"></div>
+<div class="sunflower sunflower12"></div>
+<div class="sunflower sunflower13"></div>
+<div class="sunflower sunflower14"></div>
+<div class="sunflower sunflower15"></div>
+<div class="sunflower sunflower16"></div>
+<div class="sunflower sunflower17"></div>
+<div class="sunflower sunflower18"></div>
+<div class="sunflower sunflower19"></div>
+<div class="sunflower sunflower20"></div>
+<div class="sunflower sunflower21"></div>
+<div class="sunflower sunflower22"></div>
+<div class="sunflower sunflower23"></div>
+<div class="sunflower sunflower24"></div>
+<div class="sunflower sunflower25"></div>
+<div class="sunflower sunflower26"></div>
+<div class="sunflower sunflower27"></div>
+<div class="sunflower sunflower28"></div>
+<div class="sunflower sunflower29"></div>
+<div class="sunflower sunflower30"></div>
+<div class="sunflower sunflower31"></div>
+<div class="sunflower sunflower32"></div>
+<div class="sunflower sunflower33"></div>
+<div class="sunflower sunflower34"></div>
+<div class="sunflower sunflower35"></div>
+<div class="sunflower sunflower36"></div>
+<div class="sunflower sunflower37"></div>
+<div class="sunflower sunflower38"></div>
+<div class="sunflower sunflower39"></div>
+<div class="sunflower sunflower40"></div>
+
+<div class="rose rose1"></div>
+<div class="rose rose2"></div>
+<div class="rose rose3"></div>
+<div class="rose rose4"></div>
+<div class="rose rose5"></div>
+<div class="rose rose6"></div>
+<div class="rose rose7"></div>
+<div class="rose rose8"></div>
+<div class="rose rose9"></div>
+<div class="rose rose10"></div>
+<div class="rose rose11"></div>
+<div class="rose rose12"></div>
+<div class="rose rose13"></div>
+<div class="rose rose14"></div>
+<div class="rose rose15"></div>
+<div class="rose rose16"></div>
+<div class="rose rose17"></div>
+<div class="rose rose18"></div>
+<div class="rose rose19"></div>
+<div class="rose rose20"></div>
+<div class="rose rose21"></div>
+<div class="rose rose22"></div>
+<div class="rose rose23"></div>
+<div class="rose rose24"></div>
+<div class="rose rose25"></div>
+<div class="rose rose26"></div>
+<div class="rose rose27"></div>
+<div class="rose rose28"></div>
+<div class="rose rose29"></div>
+<div class="rose rose30"></div>
+<div class="rose rose31"></div>
+<div class="rose rose32"></div>
+<div class="rose rose33"></div>
+<div class="rose rose34"></div>
+<div class="rose rose35"></div>
+<div class="rose rose36"></div>
+<div class="rose rose37"></div>
+
+<link rel="preload" href="ramo.png" as="image">
+<link rel="preload" href="corazon.png" as="image">
+<link rel="preload" href="girasol.png" as="image">
+<link rel="preload" href="estrella.png" as="image">
+
+<div class="card" onclick="revealMessage()">
+    <div class="flowers"></div>
+    <div class="message" id="message">
+        <h2>Flores Amarillas para ti</h2>
+        <img src="ari2.jpg" style="width: 50%; border-radius: 10px;">
+        <p>El 21 de septiembre es especial, porque como estas flores, tú iluminas mi vida. 🌻❤️</p>
+    </div>
+</div>
+
+<script>
+    let messageRevealed = false;
+
+    function revealMessage() {
+        const flowers = document.querySelector('.flowers');
+        const message = document.getElementById('message');
+
+        if (!messageRevealed) {
+            flowers.style.opacity = '1';
+            message.classList.add('hidden-message');
+        } else {
+            flowers.style.opacity = '0';
+            message.classList.remove('hidden-message');
+        }
+        messageRevealed = !messageRevealed;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de C(q)</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Gráfico de C(q) y límite de 40,000 soles</h1>
+    <div id="grafico"></div>
+
+    <script>
+        // Definimos la función de costo C(q)
+        function C(q) {
+            return (500 * q - 2000) / (Math.pow(q, 2) - 250 * q + 15000) + 3 * q - 100;
+        }
+
+        // Generamos los valores de q en el rango permitido (500 <= q <= 8000)
+        var q_values = [];
+        var C_values = [];
+        for (var i = 500; i <= 8000; i += 7.5) {
+            q_values.push(i);
+            C_values.push(C(i));
+        }
+
+        // Definimos el gráfico usando Plotly
+        var trace1 = {
+            x: q_values,
+            y: C_values,
+            type: 'scatter',
+            mode: 'lines',
+            name: 'C(q)',
+            line: {color: 'blue'}
+        };
+
+        // Línea de referencia para el costo de 40,000 soles
+        var trace2 = {
+            x: [500, 8000],
+            y: [40000, 40000],
+            type: 'scatter',
+            mode: 'lines',
+            name: 'C(q) = 40000',
+            line: {color: 'red', dash: 'dash'}
+        };
+
+        // Configuramos los datos y el layout
+        var data = [trace1, trace2];
+        var layout = {
+            title: 'Gráfico de C(q) y límite de 40,000 soles',
+            xaxis: {title: 'Cantidad de producción (q)',
+            range: [500, 8500]
+            },
+            
+            yaxis: {title: 'Costo de Producción (C(q))'},
+            showlegend: true
+        };
+
+        // Mostramos el gráfico en el div con id "grafico"
+        Plotly.newPlot('grafico', data, layout);
+    </script>
+</body>
+</html>
